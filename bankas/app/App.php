@@ -1,19 +1,20 @@
 <?php
+
 namespace Bank;
 
 use Bank\Controllers\AccountsController;
 use Bank\Controllers\HomeController;
 
-class App {
+class App
+{
 
-    static public function start() 
+    static public function start()
     {
 
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
 
         return self::router($url);
-
     }
 
     static private function router($url)
@@ -23,25 +24,19 @@ class App {
         }
 
         // Account START
-       else if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'account') {
-           return (new AccountsController)->index();
-        }
-        else if($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'account' && $url[1] == 'create') {
+        else if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'account') {
+            return (new AccountsController)->index();
+        } else if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'account' && $url[1] == 'create') {
             return (new AccountsController)->create();
-        }
-        else if($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'account' && $url[1] == 'store') {
+        } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'account' && $url[1] == 'store') {
             return (new AccountsController)->store($_POST);
-        }
-        else if($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'edit') {
+        } else if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'edit') {
             return (new AccountsController)->edit($url[2]);
-        }
-        else if($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'update') {
+        } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'update') {
             return (new AccountsController)->update($url[2], $_POST);
-        }
-        else if($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'delete') {
+        } else if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'delete') {
             return (new AccountsController)->delete($url[2]);
-        }
-        else if($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'destroy') {
+        } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'account' && $url[1] == 'destroy') {
             return (new AccountsController)->destroy($url[2]);
         }
         // Account END
@@ -67,5 +62,4 @@ class App {
 
         return ob_get_clean();
     }
-
 }

@@ -4,6 +4,7 @@
     <p>Sąskaitų sąrašas tuščias.</p>
 
 <?php else : ?>
+    <p>Sąskaitų sąrašas:</p>
     <?php foreach ($accounts as $account) : ?>
         <div>
             <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>

@@ -1,7 +1,8 @@
 <h1>Redaguoti balansą</h1>
 
+<p>Pridėkite arba išimkite lėšų iš sąskaitos:</p>
+
 <div>
-    <p>Pridėkite arba išimkite lėšų iš sąskaitos</p>
     <div>
         <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
     </div>
@@ -10,6 +11,7 @@
 </div>
 
 <form action="/account/update/<?= $account['id'] ?>" method="post">
+
     <div>
         <label for="amount">Įveskite sumą</label>
         <input type="number" name="amount" placeholder="..." required>
@@ -19,12 +21,10 @@
         <button type="submit">Pridėti</button>
         <button type="submit">Išimti</button>
     </div>
-
-
-    <div>
-        <button>
-            <a href="/account">Atšaukti</a>
-        </button>
-    </div>
-
 </form>
+
+<div>
+    <button>
+        <a href="/account">Atšaukti</a>
+    </button>
+</div>
