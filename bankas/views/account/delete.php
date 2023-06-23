@@ -2,14 +2,15 @@
 
 <p>Ar tikrai norite ištrinti sąskaitą?</p>
 
-<div>
-    <div>
-        <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
-    </div>
-    <h3><?= $account['accountNo'] ?></h3>
-</div>
-
 <form action="/account/destroy/<?= $account['id'] ?>" method="post">
+
+    <div>
+        <div>
+            <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
+        </div>
+        <h3><?= $account['accountNo'] ?></h3>
+    </div>
+
     <div>
         <button type="submit">Ištrinti</button>
         <button>

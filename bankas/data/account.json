@@ -1,18 +1,1 @@
-[
-    {
-        "firstName": "Jonas",
-        "lastName": "Moncys",
-        "personalId": "38902152525",
-        "accountNo": "LT456658952365125545",
-        "balance": "0",
-        "id": 765798236
-    },
-    {
-        "firstName": "Monika",
-        "lastName": "Gerul\u0117",
-        "personalId": "47911235689",
-        "accountNo": "LT456658952365125545",
-        "balance": "0",
-        "id": 437296694
-    }
-]
+[{"firstName":"Jonas","lastName":"Moncys","personalId":"38902152525","accountNo":"LT456658952365125545","balance":"20.15","id":235894899}]

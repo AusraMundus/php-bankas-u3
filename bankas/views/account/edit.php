@@ -1,22 +1,30 @@
-<h1>Redaguoti balansą</h1>
+<h1>Redaguoti sąskaitą</h1>
 
-<p>Pridėkite arba išimkite lėšų iš sąskaitos:</p>
-
-<div>
-    <div>
-        <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
-    </div>
-    <h3><?= $account['accountNo'] ?></h3>
-    <h3><?= $account['balance'] ?> €</h3>
-</div>
+<p>Redaguokite sąskaitos duomenis. Pridėkite arba išimkite lėšų iš sąskaitos:</p>
 
 <form action="/account/update/<?= $account['id'] ?>" method="post">
 
     <div>
-        <label for="amount">Įveskite sumą</label>
-        <input type="number" name="amount" placeholder="..." required>
-        <span>€</span>
+        <label for="firstName">Vardas</label>
+        <input type="text" name="firstName" id="firstName" value="<?= $account['firstName'] ?>" required>
     </div>
+    <div>
+        <label for="lastName">Pavardė</label>
+        <input type="text" name="lastName" id="lastName" value="<?= $account['lastName'] ?>" required>
+    </div>
+    <div>
+        <label for="personalId">Asmens kodas</label>
+        <input type="text" name="personalId" id="personalId" value="<?= $account['personalId'] ?>" required>
+    </div>
+    <div>
+        <label for="accountNo">Banko sąskaitos numeris</label>
+        <input type="text" name="accountNo" id="accountNo" value="<?= $account['accountNo'] ?>" required>
+    </div>
+    <div>
+        <label for="balance">Balansas</label>
+        <input type="number" name="balance" id="balance" min="0" step="0.01" value="<?= $account['balance'] ?>" required>
+    </div>
+
     <div>
         <button type="submit">Pridėti</button>
         <button type="submit">Išimti</button>
@@ -28,3 +36,4 @@
         <a href="/account">Atšaukti</a>
     </button>
 </div>
+

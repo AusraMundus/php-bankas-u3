@@ -13,15 +13,15 @@
     </div>
     <div>
         <label for="personalId">Asmens kodas</label>
-        <input type="text" name="personalId" placeholder="Įveskite asmens kodą..." required>
+        <input type="number" name="personalId" placeholder="Įveskite asmens kodą..." required>
     </div>
     <div>
         <label for="accountNo">Banko sąskaitos numeris</label>
-        <input type="text" name="accountNo" placeholder="Įveskite LT..." required>
+        <input type="text" name="accountNo" placeholder="Įveskite sąskaitos numerį..." required>
     </div>
     <div>
-        <label for="accountNo">Balansas</label>
-        <input type="text" name="balance" placeholder="Įveskite..." required>
+        <label for="balance">Balansas</label>
+        <input type="number" name="balance" min="0" step="0.01" placeholder="Įveskite pradinį balansą..." required>
     </div>
     <div>
         <button type="submit">Išsaugoti</button>

@@ -14,7 +14,7 @@
         <h3><?= $account['balance'] ?> €</h3>
 
         <button>
-            <a href="/account/edit/<?= $account['id'] ?>">Redaguoti balansą</a>
+            <a href="/account/edit/<?= $account['id'] ?>">Redaguoti sąskaitą</a>
         </button>
         <button>
             <a href="/account/delete/<?= $account['id'] ?>">Ištrinti sąskaitą</a>
