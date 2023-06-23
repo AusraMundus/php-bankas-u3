@@ -13,7 +13,7 @@ class AccountsController
         $data = new FileWriter('account');
         
         return App::view('account/index', [
-            'pageTitle' => 'Accounts list',
+            'pageTitle' => 'Sąskaitų sąrašas',
             'accounts' => $data->showAll(),
         ]);
     }
@@ -21,7 +21,7 @@ class AccountsController
     public function create()
     {
         return App::view('account/create', [
-            'pageTitle' => 'Create account',
+            'pageTitle' => 'Pridėti sąskaitą',
         ]);
     }
 
@@ -39,7 +39,7 @@ class AccountsController
         $account = $data->show($id);
 
         return App::view('account/edit', [
-            'pageTitle' => 'Edit account',
+            'pageTitle' => 'Redaguoti sąskaitą',
             'account' => $account,
         ]);
     }
@@ -56,7 +56,7 @@ class AccountsController
     {
         $account = (new FileWriter('account'))->show($id);
         return App::view('account/delete', [
-            'pageTitle' => 'Confirm account delete',
+            'pageTitle' => 'Ištrinti sąskaitą',
             'account' => $account,
         ]);
     }
