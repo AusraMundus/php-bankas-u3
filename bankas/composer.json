@@ -1,0 +1,18 @@
+{
+    "name": "mundus/bank",
+    "description": "Bank Application based on PHP OOP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bank\\": "app/",
+            "App\\DB\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ausra",
+            "email": "munduswebstudio@gmail.com"
+        }
+    ],
+    "require": {}
+}
