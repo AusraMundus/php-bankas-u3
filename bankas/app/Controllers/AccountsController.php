@@ -10,9 +10,9 @@ class AccountsController
 {
     public function index()
     {
-        $data = new FileWriter('account');
+        $data = new FileWriter('accounts');
         
-        return App::view('account/index', [
+        return App::view('accounts/index', [
             'pageTitle' => 'Sąskaitų sąrašas',
             'accounts' => $data->showAll(),
         ]);
@@ -20,53 +20,53 @@ class AccountsController
 
     public function create()
     {
-        return App::view('account/create', [
+        return App::view('accounts/create', [
             'pageTitle' => 'Pridėti sąskaitą',
         ]);
     }
 
     public function store(array $request)
     {
-        $data = new FileWriter('account');
+        $data = new FileWriter('accounts');
         $data->create($request);
 
-        header('Location: /account');
+        header('Location: /accounts');
     }
 
     public function edit(int $id)
     {
-        $data = new FileWriter('account');
+        $data = new FileWriter('accounts');
         $account = $data->show($id);
 
-        return App::view('account/edit', [
+        return App::view('accounts/edit', [
             'pageTitle' => 'Redaguoti sąskaitą',
-            'account' => $account,
+            'accounts' => $account,
         ]);
     }
 
     public function update(int $id, array $request)
     {
-        $data = new FileWriter('account');
+        $data = new FileWriter('accounts');
         $data->update($id, $request);
 
-        header('Location: /account');
+        header('Location: /accounts');
     }
 
     public function delete(int $id)
     {
-        $account = (new FileWriter('account'))->show($id);
-        return App::view('account/delete', [
+        $account = (new FileWriter('accounts'))->show($id);
+        return App::view('accounts/delete', [
             'pageTitle' => 'Ištrinti sąskaitą',
-            'account' => $account,
+            'accounts' => $account,
         ]);
     }
 
     public function destroy(int $id)
     {
-        $data = new FileWriter('account');
+        $data = new FileWriter('accounts');
         $data->delete($id);
 
-        header('Location: /account');
+        header('Location: /accounts');
     }
 
 }

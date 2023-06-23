@@ -2,7 +2,7 @@
 
 <p>Redaguokite sąskaitos duomenis. Pridėkite arba išimkite lėšų iš sąskaitos:</p>
 
-<form action="/account/update/<?= $account['id'] ?>" method="post">
+<form action="/accounts/update/<?= $account['id'] ?>" method="post">
 
     <div>
         <label for="firstName">Vardas</label>
@@ -33,7 +33,7 @@
 
 <div>
     <button>
-        <a href="/account">Atšaukti</a>
+        <a href="/accounts">Atšaukti</a>
     </button>
 </div>
 

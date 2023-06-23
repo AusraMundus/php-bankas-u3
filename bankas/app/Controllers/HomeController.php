@@ -9,7 +9,7 @@ class HomeController
     public function index()
     {
         return App::view('home/index', [
-            'pageTitle' => 'Sveiki atvykę! | BANK'
+            'pageTitle' => 'Sveiki atvykę!'
         ]);
     }
 }

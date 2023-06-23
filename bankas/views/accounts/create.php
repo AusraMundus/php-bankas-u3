@@ -2,7 +2,7 @@
 
 <p>Įveskite reikalingus duomenis, kad galėtumėte pridėti naują sąskaitą:</p>
 
-<form action="/account/store" method="post">
+<form action="/accounts/store" method="post">
     <div>
         <label for="firstName">Vardas</label>
         <input type="text" name="firstName" placeholder="Įveskite vardą..." required>
@@ -26,7 +26,7 @@
     <div>
         <button type="submit">Išsaugoti</button>
         <button>
-            <a href="/account">Atšaukti</a>
+            <a href="/accounts">Atšaukti</a>
         </button>
     </div>
 </form>
