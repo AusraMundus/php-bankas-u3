@@ -10,7 +10,7 @@
             <div>
                 <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
             </div>
-            <h3><?= $account['accountNo'] ?></h3>
+            <h3><?= $account['iban'] ?></h3>
         </div>
 
         <div>

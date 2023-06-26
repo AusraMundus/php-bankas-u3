@@ -15,11 +15,11 @@
         </div>
         <div>
             <label for="personalId">Asmens kodas</label>
-            <input type="number" name="personalId" placeholder="Įveskite asmens kodą..." required>
+            <input type="text" name="personalId" id="personalId" value="<?=$personalId?>" placeholder="Įveskite asmens kodą" required>
         </div>
         <div>
-            <label for="accountNo">Banko sąskaitos numeris</label>
-            <input type="text" name="accountNo" placeholder="Įveskite sąskaitos numerį..." required>
+            <label for="iban">Banko sąskaitos numeris</label>
+            <input type="text" name="iban" id="iban" value="<?=$iban?>" readonly>
         </div>
         <div>
             <label for="balance">Balansas</label>

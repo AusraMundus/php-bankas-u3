@@ -4,6 +4,7 @@ namespace Bank\Controllers;
 
 use Bank\App;
 use Bank\FileWriter;
+use Bank\IbanId;
 use Bank\OldData;
 use Bank\Messages;
 
@@ -26,11 +27,15 @@ class AccountsController
 
         $firstname = $old['firstName'] ?? '';
         $lastName = $old['lastName'] ?? '';
+        $personalId = $old['personalId'] ?? '';
+        $iban = $old['iban'] ?? IbanId::generateLithuanianIBAN();
         
         return App::view('accounts/create', [
             'pageTitle' => 'Pridėti sąskaitą',
             'firstName' => $firstname,
-            'lastName' => $lastName
+            'lastName' => $lastName,
+            'personalId' => $personalId,
+            'iban' => $iban,
         ]);
     }
 
@@ -51,20 +56,23 @@ class AccountsController
         $id = $account['id'];
         $firstName = $account['firstName'];
         $lastName = $account['lastName'];
+        $personalId = $account['personalId'];
+        $iban = $account['iban'];
 
         return App::view('accounts/edit', [
             'pageTitle' => 'Redaguoti sąskaitą',
-            'account' => $account,
             'id' => $id,
             'firstName' => $firstName,
-            'lastName' => $lastName
+            'lastName' => $lastName,
+            'personalId' => $personalId,
+            'iban' => $iban
         ]);
     }
 
     public function update(int $id, array $request)
     {
         $data = new FileWriter('account');
-        $data->update($id, $request);
+        $data->update($id, $request);    
 
         Messages::addMessage('success', 'Sąskaitos duomenys atnaujinti');
         header('Location: /accounts');

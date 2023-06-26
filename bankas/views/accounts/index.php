@@ -12,7 +12,7 @@
                 <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
             </div>
             <h3><?= $account['personalId'] ?></h3>
-            <h3><?= $account['accountNo'] ?></h3>
+            <h3><?= $account['iban'] ?></h3>
             <h3><?= $account['balance'] ?> €</h3>
 
             <button class="w3-btn w3-pale-red">

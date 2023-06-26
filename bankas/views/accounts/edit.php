@@ -5,17 +5,14 @@
     <p class="w3-margin">Redaguokite sąskaitos duomenis. Pridėkite arba išimkite lėšų iš sąskaitos:</p>
 
     <form action="/accounts/update/<?= $account['id'] ?>" method="post" class="w3-card w3-padding" style="width:50%;">
-
         <div>
             <h2><?= $firstName ?> <?= $lastName ?></h2>
         </div>
         <div>
-            <label for="personalId">Asmens kodas</label>
-            <input type="text" name="personalId" id="personalId" value="<?= $account['personalId'] ?>" required>
+            <p><?= $personalId ?></p>
         </div>
         <div>
-            <label for="accountNo">Banko sąskaitos numeris</label>
-            <input type="text" name="accountNo" id="accountNo" value="<?= $account['accountNo'] ?>" required>
+            <p><?= $iban ?></p>
         </div>
         <div>
             <label for="balance">Balansas</label>
