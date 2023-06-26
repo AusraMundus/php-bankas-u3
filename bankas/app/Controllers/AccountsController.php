@@ -43,6 +43,34 @@ class AccountsController
     {
         extract($request);
 
+        $error1 = 0;
+        $error2 = 0;
+        $error3 = 0;
+        $error4 = 0;
+
+        if (strlen($firstName) < 3 || strlen($lastName) < 3) {
+            Messages::addMessage('danger', 'Vardą ir pavardę turi sudaryti bent trys simboliai.');
+            $error1 = 1;
+        }
+
+        if (!ctype_digit($personalId) || strlen(trim($personalId)) !== 11) {
+            Messages::addMessage('danger', 'Asmens kodą turi sudaryti vienuolika skaičių.');
+            $error2 = 1;
+        }
+
+        foreach ($accounts as $account) {
+            if ($account['personalId'] === $personalId) {
+                Messages::addMessage('danger', 'Vartotojas su tokiu asmens kodu jau įvestas.');
+                $error3 = 1;
+            }
+        }
+
+        if ($error1 || $error2 || $error3) {
+            OldData::flashData($request);
+            header("Location: /accounts/create");
+            die;
+        }
+
         $data = new FileWriter('account');
         $newAccount = [
             'id' => $id,
