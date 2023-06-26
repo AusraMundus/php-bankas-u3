@@ -4,28 +4,28 @@
 
     <p class="w3-margin">Įveskite reikalingus duomenis, kad galėtumėte pridėti naują sąskaitą:</p>
 
-    <form action="/accounts/store" method="post" class="w3-card w3-padding" style="width:50%;">
-        <div>
+    <form class="w3-card w3-padding" style="width:50%;" action="/accounts/store" method="post">
+        <div class="w3-padding" style="display: flex; flex-direction: column;">
             <label for="firstName">Vardas</label>
-            <input type="text" name="firstName" id="firstName" value="<?= $firstName ?>" placeholder="Įveskite vardą" required>
+            <input input class="w3-input w3-border" type="text" name="firstName" id="firstName" value="<?= $firstName ?>" placeholder="Įveskite vardą" required>
         </div>
-        <div>
+        <div class="w3-padding" style="display: flex; flex-direction: column;">
             <label for="lastName">Pavardė</label>
-            <input type="text" name="lastName" id="lastName" value="<?= $lastName ?>" placeholder="Įveskite pavardę" required>
+            <input input class="w3-input w3-border" type="text" name="lastName" id="lastName" value="<?= $lastName ?>" placeholder="Įveskite pavardę" required>
         </div>
-        <div>
+        <div class="w3-padding" style="display: flex; flex-direction: column;">
             <label for="personalId">Asmens kodas</label>
-            <input type="text" name="personalId" id="personalId" value="<?= $personalId ?>" placeholder="Įveskite asmens kodą" required>
+            <input input class="w3-input w3-border" type="text" name="personalId" id="personalId" value="<?= $personalId ?>" placeholder="Įveskite asmens kodą" required>
         </div>
-        <div>
+        <div class="w3-padding" style="display: flex; flex-direction: column;">
             <label for="iban">Banko sąskaitos numeris</label>
-            <input type="text" name="iban" id="iban" value="<?= $iban ?>" readonly>
+            <input input class="w3-input w3-border" type="text" name="iban" id="iban" value="<?= $iban ?>" readonly>
         </div>
-        <div>
+        <div class="w3-padding" style="display: flex; flex-direction: column;">
             <label for="balance">Balansas</label>
-            <input type="number" name="balance" id="balance" value=0 placeholder="0 €" readonly>
+            <input input class="w3-input w3-border" type="number" name="balance" id="balance" value=0 placeholder="0 €" readonly>
         </div>
-        <div>
+        <div class="w3-padding">
             <button class="w3-btn w3-pale-red" type="submit">Išsaugoti</button>
             <button class="w3-btn w3-grey">
                 <a href="/accounts">Atšaukti</a>

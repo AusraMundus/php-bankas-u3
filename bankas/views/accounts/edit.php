@@ -4,26 +4,25 @@
 
     <p class="w3-margin">Pridėkite arba išimkite lėšų iš sąskaitos:</p>
 
-    <form action="/accounts/update/<?= $id ?>" method="post" class="w3-card w3-padding" style="width:50%;">
-        <div>
-            <h2><?= $firstName ?> <?= $lastName ?></h2>
+    <form class="w3-card w3-container" style="width:50%;" action="/accounts/update/<?= $id ?>" method="post">
+        <div class="w3-container" style="display: flex; flex-direction: column;">
+            <h3><?= $firstName ?> <?= $lastName ?></h3>
         </div>
-        <div>
-            <p><?= $personalId ?></p>
+        <div class="w3-container" style="display: flex; flex-direction: column;">
+            <p>Sąskaitos numeris</p>
+            <p class="w3-input"><?= $iban ?></p>
         </div>
-        <div>
-            <p><?= $iban ?></p>
-        </div>
-        <div>
-            <p><?= $balance ?></p>
+        <div class="w3-container" style="display: flex; flex-direction: column;">
+            <p>Balansas</p>
+            <p class="w3-input"><?= $balance ?> €</p>
         </div>
 
-        <div>
+        <div class="w3-padding" style="display: flex; flex-direction: column;">
             <label for="amount">Redaguoti balansą:</label>
-            <input type="number" name="amount" id="amount" placeholder="Įveskite sumą" required>
+            <input class="w3-input w3-border" type="number" name="amount" id="amount" placeholder="Įveskite sumą" required>
         </div>
 
-        <div>
+        <div class="w3-padding">
             <button class="w3-btn w3-pale-red" type="submit" name="add" value=1>Pridėti</button>
             <button class="w3-btn w3-grey" type="submit" name="withdraw" value=1>Išimti</button>
         </div>
