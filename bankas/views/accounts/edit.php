@@ -7,12 +7,7 @@
     <form action="/accounts/update/<?= $account['id'] ?>" method="post" class="w3-card w3-padding" style="width:50%;">
 
         <div>
-            <label for="firstName">Vardas</label>
-            <input type="text" name="firstName" id="firstName" value="<?= $account['firstName'] ?>" required>
-        </div>
-        <div>
-            <label for="lastName">Pavardė</label>
-            <input type="text" name="lastName" id="lastName" value="<?= $account['lastName'] ?>" required>
+            <h2><?= $firstName ?> <?= $lastName ?></h2>
         </div>
         <div>
             <label for="personalId">Asmens kodas</label>

@@ -7,11 +7,11 @@
     <form action="/accounts/store" method="post" class="w3-card w3-padding" style="width:50%;">
         <div>
             <label for="firstName">Vardas</label>
-            <input type="text" name="firstName" placeholder="Įveskite vardą..." required>
+            <input type="text" name="firstName" id="firstName" value="<?=$firstName?>" placeholder="Įveskite vardą" required>
         </div>
         <div>
             <label for="lastName">Pavardė</label>
-            <input type="text" name="lastName" placeholder="Įveskite pavardę..." required>
+            <input type="text" name="lastName" id="lastName" value="<?=$lastName?>" placeholder="Įveskite pavardę" required>
         </div>
         <div>
             <label for="personalId">Asmens kodas</label>
