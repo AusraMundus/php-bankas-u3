@@ -46,7 +46,6 @@ class AccountsController
         $error1 = 0;
         $error2 = 0;
         $error3 = 0;
-        $error4 = 0;
 
         if (strlen($firstName) < 3 || strlen($lastName) < 3) {
             Messages::addMessage('danger', 'Vardą ir pavardę turi sudaryti bent trys simboliai.');
