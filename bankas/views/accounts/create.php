@@ -7,23 +7,23 @@
     <form action="/accounts/store" method="post" class="w3-card w3-padding" style="width:50%;">
         <div>
             <label for="firstName">Vardas</label>
-            <input type="text" name="firstName" id="firstName" value="<?=$firstName?>" placeholder="Įveskite vardą" required>
+            <input type="text" name="firstName" id="firstName" value="<?= $firstName ?>" placeholder="Įveskite vardą" required>
         </div>
         <div>
             <label for="lastName">Pavardė</label>
-            <input type="text" name="lastName" id="lastName" value="<?=$lastName?>" placeholder="Įveskite pavardę" required>
+            <input type="text" name="lastName" id="lastName" value="<?= $lastName ?>" placeholder="Įveskite pavardę" required>
         </div>
         <div>
             <label for="personalId">Asmens kodas</label>
-            <input type="text" name="personalId" id="personalId" value="<?=$personalId?>" placeholder="Įveskite asmens kodą" required>
+            <input type="text" name="personalId" id="personalId" value="<?= $personalId ?>" placeholder="Įveskite asmens kodą" required>
         </div>
         <div>
             <label for="iban">Banko sąskaitos numeris</label>
-            <input type="text" name="iban" id="iban" value="<?=$iban?>" readonly>
+            <input type="text" name="iban" id="iban" value="<?= $iban ?>" readonly>
         </div>
         <div>
             <label for="balance">Balansas</label>
-            <input type="number" name="balance" min="0" step="0.01" placeholder="Įveskite pradinį balansą..." required>
+            <input type="number" name="balance" id="balance" value=0 placeholder="0 €" readonly>
         </div>
         <div>
             <button class="w3-btn w3-pale-red" type="submit">Išsaugoti</button>

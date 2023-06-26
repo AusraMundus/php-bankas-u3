@@ -13,10 +13,10 @@
             </div>
             <h3><?= $account['personalId'] ?></h3>
             <h3><?= $account['iban'] ?></h3>
-            <h3><?= $account['balance'] ?> €</h3>
+            <h3><?= $account['balance']?><span> €</span></h3>
 
             <button class="w3-btn w3-pale-red">
-                <a href="/accounts/edit/<?= $account['id'] ?>">Redaguoti sąskaitą</a>
+                <a href="/accounts/edit/<?= $account['id'] ?>">Redaguoti balansą</a>
             </button>
             <button class="w3-btn w3-grey">
                 <a href="/accounts/delete/<?= $account['id'] ?>">Ištrinti sąskaitą</a>

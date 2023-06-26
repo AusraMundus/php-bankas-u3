@@ -4,13 +4,16 @@
 
     <p class="w3-margin">Ar tikrai norite ištrinti sąskaitą?</p>
 
-    <form action="/accounts/destroy/<?= $account['id'] ?>" method="post" class="w3-card w3-padding" style="width:50%;">
+    <form action="/accounts/destroy/<?= $id ?>" method="post" class="w3-card w3-padding" style="width:50%;">
 
         <div>
-            <div>
-                <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
-            </div>
-            <h3><?= $account['iban'] ?></h3>
+            <h2><?= $firstName ?> <?= $lastName ?></h2>
+        </div>
+        <div>
+            <p><?= $personalId ?></p>
+        </div>
+        <div>
+            <p><?= $iban ?></p>
         </div>
 
         <div>

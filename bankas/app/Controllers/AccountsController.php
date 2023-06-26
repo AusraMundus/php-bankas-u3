@@ -14,7 +14,7 @@ class AccountsController
     public function index()
     {
         $data = new FileWriter('account');
-        
+
         return App::view('accounts/index', [
             'pageTitle' => 'Sąskaitų sąrašas',
             'accounts' => $data->showAll(),
@@ -29,20 +29,30 @@ class AccountsController
         $lastName = $old['lastName'] ?? '';
         $personalId = $old['personalId'] ?? '';
         $iban = $old['iban'] ?? IbanId::generateLithuanianIBAN();
-        
+
         return App::view('accounts/create', [
             'pageTitle' => 'Pridėti sąskaitą',
             'firstName' => $firstname,
             'lastName' => $lastName,
             'personalId' => $personalId,
-            'iban' => $iban,
+            'iban' => $iban
         ]);
     }
 
     public function store(array $request)
     {
+        extract($request);
+
         $data = new FileWriter('account');
-        $data->create($request);
+        $newAccount = [
+            'id' => $id,
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'personalId' => $personalId,
+            'iban' => $iban,
+            'balance' => 0
+        ];
+        $data->create($newAccount);
 
         Messages::addMessage('success', 'Nauja sąskaita sėkmingai pridėta');
         header('Location: /accounts');
@@ -58,6 +68,7 @@ class AccountsController
         $lastName = $account['lastName'];
         $personalId = $account['personalId'];
         $iban = $account['iban'];
+        $balance = $account['balance'];
 
         return App::view('accounts/edit', [
             'pageTitle' => 'Redaguoti sąskaitą',
@@ -65,35 +76,89 @@ class AccountsController
             'firstName' => $firstName,
             'lastName' => $lastName,
             'personalId' => $personalId,
-            'iban' => $iban
+            'iban' => $iban,
+            'balance' => $balance
         ]);
     }
 
-    public function update(int $id, array $request)
+    public function update(int $id, array $request, int $delete = 0)
     {
         $data = new FileWriter('account');
-        $data->update($id, $request);    
+        $account = $data->show($id);
 
-        Messages::addMessage('success', 'Sąskaitos duomenys atnaujinti');
-        header('Location: /accounts');
+        $amount = $request['amount'];
+
+        if (isset($request['add'])) {
+            if ($amount <= 0) {
+                Messages::addMessage('danger', 'Įvesta suma turi būti teigiamas sveikasis skaičius.');
+                header('Location: /accounts/edit/' . $id);
+                die;
+            }
+
+            $account['balance'] += $amount;
+
+            $data->update($id, $account);
+            Messages::addMessage('success', 'Į sąskaitą pridėta lėšų.');
+            header('Location: /accounts/edit/' . $id);
+        }
+
+        if (isset($_POST['withdraw'])) {
+            if ($amount <= 0) {
+                Messages::addMessage('danger', 'Įvesta suma turi būti teigiamas sveikasis skaičius.');
+                header('Location: /accounts/edit/' . $id);
+                die;
+            }
+
+            if ($account['balance'] < $amount) {
+                Messages::addMessage('danger', 'Nepakankamas sąskaitos likutis.');
+                header('Location: /accounts/edit/' . $id);
+                die;
+            }
+
+            $account['balance'] -= $amount;
+
+            $data->update($id, $account);
+            Messages::addMessage('success', 'Iš sąskaitos išimta lėšų.');
+
+            if ($delete == 0) {
+                header('Location: /accounts/edit/' . $id);
+            }
+        }
     }
 
     public function delete(int $id)
     {
         $account = (new FileWriter('account'))->show($id);
+
+        $id = $account['id'];
+        $firstName = $account['firstName'];
+        $lastName = $account['lastName'];
+        $personalId = $account['personalId'];
+        $iban = $account['iban'];
+        $balance = $account['balance'];
+
         return App::view('accounts/delete', [
             'pageTitle' => 'Ištrinti sąskaitą',
-            'account' => $account,
+            'id' => $id,
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'personalId' => $personalId,
+            'iban' => $iban,
+            'balance' => $balance,
         ]);
     }
 
     public function destroy(int $id)
     {
         $data = new FileWriter('account');
-        $data->delete($id);
-
-        Messages::addMessage('success', 'Sąskaita sėkmingai ištrinta');
-        header('Location: /accounts');
+        $account = $data->show($id);
+        if ($account['balance'] == 0) {
+            $data->delete($id);
+            Messages::addMessage('success', 'Sąskaita sėkmingai ištrinta.');
+            header('Location: /accounts');
+        } else {
+            Messages::addMessage('danger', 'Sąskaitoje yra lėšų. Ištrinti negalima.');
+            header('Location: /accounts/delete/' . $id);
+        }
     }
-
 }
