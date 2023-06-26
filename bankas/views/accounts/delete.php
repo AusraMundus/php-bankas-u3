@@ -1,20 +1,24 @@
-<h1>Ištrinti sąskaitą</h1>
+<div class="w3-container w3-margin">
 
-<p>Ar tikrai norite ištrinti sąskaitą?</p>
+    <h1 class="w3-card w3-pale-red w3-padding">Ištrinti sąskaitą</h1>
 
-<form action="/accounts/destroy/<?= $account['id'] ?>" method="post">
+    <p class="w3-margin">Ar tikrai norite ištrinti sąskaitą?</p>
 
-    <div>
+    <form action="/accounts/destroy/<?= $account['id'] ?>" method="post" class="w3-card w3-padding" style="width:50%;">
+
         <div>
-            <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
+            <div>
+                <h2><?= $account['firstName'] ?> <?= $account['lastName'] ?></h2>
+            </div>
+            <h3><?= $account['accountNo'] ?></h3>
         </div>
-        <h3><?= $account['accountNo'] ?></h3>
-    </div>
 
-    <div>
-        <button type="submit">Ištrinti</button>
-        <button>
-            <a href="/accounts">Atšaukti</a>
-        </button>
-    </div>
-</form>
+        <div>
+            <button class="w3-btn w3-pale-red" type="submit">Ištrinti</button>
+            <button class="w3-btn w3-grey">
+                <a href="/accounts">Atšaukti</a>
+            </button>
+        </div>
+    </form>
+
+</div>

@@ -1,7 +1,7 @@
-<h1>Easy Way To Manage Bank Accounts</h1>
+<div class="w3-container w3-margin">
 
-<h2>Sveiki atvykę!</h2>
+    <h1>Easy Way To Manage Bank Accounts</h1>
 
-<button>
-    <a href="/accounts">Eiti į sąskaitų sąrašą</a>
-</button>
+    <h2>Sveiki atvykę!</h2>
+
+</div>
