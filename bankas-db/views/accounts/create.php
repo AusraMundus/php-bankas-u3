@@ -6,16 +6,16 @@
 
     <form class="w3-card w3-padding" style="width:50%;" action="/accounts/store" method="post">
         <div class="w3-padding" style="display: flex; flex-direction: column;">
-            <label for="firstName">Vardas</label>
-            <input input class="w3-input w3-border" type="text" name="firstName" id="firstName" value="<?= $firstName ?>" placeholder="Įveskite vardą" required>
+            <label for="first_name">Vardas</label>
+            <input input class="w3-input w3-border" type="text" name="first_name" id="first_name" value="<?= $first_name ?>" placeholder="Įveskite vardą" required>
         </div>
         <div class="w3-padding" style="display: flex; flex-direction: column;">
-            <label for="lastName">Pavardė</label>
-            <input input class="w3-input w3-border" type="text" name="lastName" id="lastName" value="<?= $lastName ?>" placeholder="Įveskite pavardę" required>
+            <label for="last_name">Pavardė</label>
+            <input input class="w3-input w3-border" type="text" name="last_name" id="last_name" value="<?= $last_name ?>" placeholder="Įveskite pavardę" required>
         </div>
         <div class="w3-padding" style="display: flex; flex-direction: column;">
-            <label for="personalId">Asmens kodas</label>
-            <input input class="w3-input w3-border" type="text" name="personalId" id="personalId" value="<?= $personalId ?>" placeholder="Įveskite asmens kodą" required>
+            <label for="personal_id">Asmens kodas</label>
+            <input input class="w3-input w3-border" type="text" name="personal_id" id="personal_id" value="<?= $personal_id ?>" placeholder="Įveskite asmens kodą" required>
         </div>
         <div class="w3-padding" style="display: flex; flex-direction: column;">
             <label for="iban">Banko sąskaitos numeris</label>

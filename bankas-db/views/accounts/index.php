@@ -16,9 +16,9 @@
             </tr>
             <?php foreach ($accounts as $account) : ?>
                 <tr>
-                    <td style="line-height: 35px;"><?= $account['firstName'] ?></td>
-                    <td style="line-height: 35px;"><?= $account['lastName'] ?></td>
-                    <td style="line-height: 35px;"><?= $account['personalId'] ?></td>
+                    <td style="line-height: 35px;"><?= $account['first_name'] ?></td>
+                    <td style="line-height: 35px;"><?= $account['last_name'] ?></td>
+                    <td style="line-height: 35px;"><?= $account['personal_id'] ?></td>
                     <td style="line-height: 35px;"><?= $account['iban'] ?></td>
                     <td style="line-height: 35px;"><?= $account['balance'] ?><span> €</span></td>
                     <td>

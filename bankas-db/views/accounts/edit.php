@@ -6,7 +6,7 @@
 
     <form class="w3-card w3-container" style="width:50%;" action="/accounts/update/<?= $id ?>" method="post">
         <div class="w3-container" style="display: flex; flex-direction: column;">
-            <h3><?= $firstName ?> <?= $lastName ?></h3>
+            <h3><?= $first_name ?> <?= $last_name ?></h3>
         </div>
         <div class="w3-container" style="display: flex; flex-direction: column;">
             <p>Sąskaitos numeris</p>

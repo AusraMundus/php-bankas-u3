@@ -35,9 +35,9 @@ class DatabaseWriter implements DataBase
         "
         INSERT INTO {$this->tableName} 
         (
-            `firstName`,
-            `lastName`,
-            `personalId`,
+            `first_name`,
+            `last_name`,
+            `personal_id`,
             `iban`,
             `balance`
         ) 
@@ -49,9 +49,9 @@ class DatabaseWriter implements DataBase
         
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            $userData['firstName'],
-            $userData['lastName'],
-            $userData['personalId'],
+            $userData['first_name'],
+            $userData['last_name'],
+            $userData['personal_id'],
             $userData['iban'],
             $userData['balance'],
         ]);
