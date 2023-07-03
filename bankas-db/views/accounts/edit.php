@@ -1,6 +1,6 @@
 <div class="w3-container w3-margin">
 
-    <h1 class="w3-card w3-pale-red w3-padding">Redaguoti balansą</h1>
+    <h1 class="w3-card w3-amber w3-padding">Redaguoti balansą</h1>
 
     <p class="w3-margin">Pridėkite arba išimkite lėšų iš sąskaitos:</p>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div class="w3-padding">
-            <button class="w3-btn w3-pale-red" type="submit" name="add" value=1>Pridėti</button>
+            <button class="w3-btn w3-amber" type="submit" name="add" value=1>Pridėti</button>
             <button class="w3-btn w3-grey" type="submit" name="withdraw" value=1>Išimti</button>
         </div>
     </form>

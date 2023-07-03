@@ -1,6 +1,6 @@
 <div class="w3-container w3-margin">
 
-    <h1 class="w3-card w3-pale-red w3-padding">Pridėti naują sąskaitą</h1>
+    <h1 class="w3-card w3-amber w3-padding">Pridėti naują sąskaitą</h1>
 
     <p class="w3-margin">Įveskite reikalingus duomenis, kad galėtumėte pridėti naują sąskaitą:</p>
 
@@ -26,7 +26,7 @@
             <input input class="w3-input w3-border" type="number" name="balance" id="balance" value=0 placeholder="0 €" readonly>
         </div>
         <div class="w3-padding">
-            <button class="w3-btn w3-pale-red" type="submit">Išsaugoti</button>
+            <button class="w3-btn w3-amber" type="submit">Išsaugoti</button>
             <button class="w3-btn w3-grey">
                 <a href="/accounts">Atšaukti</a>
             </button>

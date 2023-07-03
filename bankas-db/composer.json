@@ -1,6 +1,6 @@
 {
     "name": "mundus/bank",
-    "description": "Bank Application based on PHP OOP",
+    "description": "Bank Application based on PHP OOP with SQL Database",
     "license": "MIT",
     "autoload": {
         "psr-4": {

@@ -1,4 +1,4 @@
-<div class="w3-bar w3-blue-grey">
+<div class="w3-bar w3-sand">
     <a href="<?= URL ?>" class="w3-bar-item w3-button">Pagrindinis</a>
 
     <a href="<?= URL . 'accounts' ?>" class="w3-bar-item w3-button">Sąskaitų sąrašas</a>
