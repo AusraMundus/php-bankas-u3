@@ -3,7 +3,6 @@
 namespace Bank\Controllers;
 
 use Bank\App;
-use Bank\FileWriter;
 use Bank\IbanId;
 use Bank\OldData;
 use Bank\Messages;
@@ -13,7 +12,7 @@ class AccountsController
 {
     public function index()
     {
-        $data = new FileWriter('account');
+        $data = App::get('account');
 
         return App::view('accounts/index', [
             'pageTitle' => 'Sąskaitų sąrašas',
@@ -25,14 +24,14 @@ class AccountsController
     {
         $old = OldData::getFlashData() ?? [];
 
-        $firstname = $old['firstName'] ?? '';
+        $firstName = $old['firstName'] ?? '';
         $lastName = $old['lastName'] ?? '';
         $personalId = $old['personalId'] ?? '';
         $iban = $old['iban'] ?? IbanId::generateLithuanianIBAN();
 
         return App::view('accounts/create', [
             'pageTitle' => 'Pridėti sąskaitą',
-            'firstName' => $firstname,
+            'firstName' => $firstName,
             'lastName' => $lastName,
             'personalId' => $personalId,
             'iban' => $iban
@@ -70,7 +69,7 @@ class AccountsController
             die;
         }
 
-        $data = new FileWriter('account');
+        $data = App::get('account');
         $newAccount = [
             'id' => $id,
             'firstName' => $firstName,
@@ -87,7 +86,7 @@ class AccountsController
 
     public function edit(int $id)
     {
-        $data = new FileWriter('account');
+        $data = App::get('account');
         $account = $data->show($id);
 
         $id = $account['id'];
@@ -110,7 +109,7 @@ class AccountsController
 
     public function update(int $id, array $request, int $delete = 0)
     {
-        $data = new FileWriter('account');
+        $data = App::get('account');
         $account = $data->show($id);
 
         $amount = $request['amount'];
@@ -155,7 +154,7 @@ class AccountsController
 
     public function delete(int $id)
     {
-        $account = (new FileWriter('account'))->show($id);
+        $account = (App::get('account'))->show($id);
 
         $id = $account['id'];
         $firstName = $account['firstName'];
@@ -177,7 +176,7 @@ class AccountsController
 
     public function destroy(int $id)
     {
-        $data = new FileWriter('account');
+        $data = App::get('account');
         $account = $data->show($id);
         if ($account['balance'] == 0) {
             $data->delete($id);
