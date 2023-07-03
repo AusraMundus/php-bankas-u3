@@ -25,8 +25,6 @@ class LoginController
     {
         $email = $data['email'] ?? '';
         $password = $data['password'] ?? '';
-        
-        // $users = (new FileWriter('users'))->showAll();
 
         $user = App::get('users')->getUserByEmailAndPass($email, $password);
         if ($user) {
@@ -36,16 +34,6 @@ class LoginController
             header('Location: /');
             die;
         }
-
-        // foreach ($users as $user) {
-        //     if ($user['email'] == $email && $user['password'] == md5($password)) {
-        //         $_SESSION['email'] = $email;
-        //         $_SESSION['name'] = $user['name'];
-        //         Messages::addMessage('success', 'Sėkmingai prisijungėte');
-        //         header('Location: /');
-        //         die;
-        //     }
-        // }
 
         Messages::addMessage('danger', 'Neteisingas el. paštas arba slaptažodis');
         OldData::flashData($data);

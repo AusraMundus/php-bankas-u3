@@ -47,18 +47,18 @@ class AccountsController
         $error3 = 0;
 
         if (strlen($firstName) < 3 || strlen($lastName) < 3) {
-            Messages::addMessage('warning', 'Vardą ir pavardę turi sudaryti bent trys simboliai.');
+            Messages::addMessage('danger', 'Vardą ir pavardę turi sudaryti bent trys simboliai.');
             $error1 = 1;
         }
 
         if (!ctype_digit($personalId) || strlen(trim($personalId)) !== 11) {
-            Messages::addMessage('warning', 'Asmens kodą turi sudaryti vienuolika skaičių.');
+            Messages::addMessage('danger', 'Asmens kodą turi sudaryti vienuolika skaičių.');
             $error2 = 1;
         }
 
         foreach ($accounts as $account) {
             if ($account['personalId'] === $personalId) {
-                Messages::addMessage('warning', 'Vartotojas su tokiu asmens kodu jau įvestas.');
+                Messages::addMessage('danger', 'Vartotojas su tokiu asmens kodu jau įvestas.');
                 $error3 = 1;
             }
         }
@@ -116,7 +116,7 @@ class AccountsController
 
         if (isset($request['add'])) {
             if ($amount <= 0) {
-                Messages::addMessage('warning', 'Įvesta suma turi būti teigiamas sveikasis skaičius.');
+                Messages::addMessage('danger', 'Įvesta suma turi būti teigiamas sveikasis skaičius.');
                 header('Location: /accounts/edit/' . $id);
                 die;
             }
@@ -130,7 +130,7 @@ class AccountsController
 
         if (isset($_POST['withdraw'])) {
             if ($amount <= 0) {
-                Messages::addMessage('warning', 'Įvesta suma turi būti teigiamas sveikasis skaičius.');
+                Messages::addMessage('danger', 'Įvesta suma turi būti teigiamas sveikasis skaičius.');
                 header('Location: /accounts/edit/' . $id);
                 die;
             }
